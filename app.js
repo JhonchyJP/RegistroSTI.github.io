@@ -171,9 +171,9 @@ async function enviarFormulario() {
                 limpiarValidaciones();
                 
                 // Opcional: Redirigir a Google Sheets después de 2 segundos
-                setTimeout(() => {
-                    window.open('https://docs.google.com/spreadsheets/d/1coI01R8BGI46h6nGHxDkCI-AQn3QNWYNyHnvbmhky3A', '_blank');
-                }, 2000);
+                //setTimeout(() => {
+                    //window.open('https://docs.google.com/spreadsheets/d/1coI01R8BGI46h6nGHxDkCI-AQn3QNWYNyHnvbmhky3A', '_blank');
+                //}, 2000);
             } else {
                 throw new Error(respuesta.error || 'Error del servidor');
             }
@@ -376,3 +376,4 @@ window.addEventListener('online', sincronizarPendientes);
 
 // Mostrar registros locales al cargar (solo para debug)
 // document.addEventListener('DOMContentLoaded', mostrarRegistrosLocales);
+
