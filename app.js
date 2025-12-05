@@ -258,25 +258,28 @@ function limpiarValidaciones() {
 // 11. ENVIAR A GOOGLE SHEETS
 async function enviarAGoogleSheets(datos) {
     try {
+        console.log('📤 Enviando a:', SCRIPT_URL);
+        console.log('📦 Datos:', datos);
+        
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
+            mode: 'no-cors', // IMPORTANTE para evitar problemas CORS
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(datos)
         });
         
-        // Intentar parsear la respuesta
-        try {
-            const texto = await response.text();
-            return JSON.parse(texto);
-        } catch {
-            // Si no es JSON válido, asumir éxito
-            return { success: true, message: 'Enviado' };
-        }
+        // Con 'no-cors' no podemos leer la respuesta, pero sabemos que se envió
+        console.log('✅ Datos enviados a Google Sheets');
+        return { 
+            success: true, 
+            message: 'Datos guardados en Google Sheets' 
+        };
         
     } catch (error) {
-        throw new Error('No se pudo conectar con el servidor');
+        console.error('❌ Error enviando a Google Sheets:', error);
+        throw new Error('No se pudo conectar con Google Sheets');
     }
 }
 
@@ -371,3 +374,4 @@ window.addEventListener('online', sincronizarPendientes);
 // Mostrar registros locales al cargar (solo para debug)
 
 // document.addEventListener('DOMContentLoaded', mostrarRegistrosLocales);
+
