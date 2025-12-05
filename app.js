@@ -309,11 +309,11 @@ function mostrarMensaje(texto, tipo = 'info') {
                tipo === 'error' ? 'ERROR' : 
                tipo === 'warning' ? 'ADVERTENCIA' : 'INFORMACIÓN',
         text: texto,
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true
+        //toast: true,
+        //position: 'top-end',
+        //showConfirmButton: false,
+        //timer: 3000,
+        //timerProgressBar: true
     });
 }
 
@@ -374,4 +374,5 @@ window.addEventListener('online', sincronizarPendientes);
 // Mostrar registros locales al cargar (solo para debug)
 
 // document.addEventListener('DOMContentLoaded', mostrarRegistrosLocales);
+
 
