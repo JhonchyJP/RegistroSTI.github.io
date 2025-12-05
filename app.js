@@ -3,6 +3,9 @@
 // ============================================
 let SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZursvBP9Us_KcYTmWot8xnvp-5lT7vxz06tDfY5E9StUoz2IH42jK8Q8zioCeZKC1sQ/exec'; // Se configurará después
 
+// Variable global para el formulario
+let formulario;
+
 // Datos para autocompletado (en MAYÚSCULAS)
 const sugerencias = {
     torre: ["ADMINISTRATIVA", "MÉDICA", "QUIRÚRGICA", "PEDIATRÍA", "MATERNIDAD", "EMERGENCIAS"],
@@ -107,7 +110,7 @@ function configurarAutocompletado() {
 
 // 4. CONFIGURAR EVENTOS
 function configurarEventos() {
-    const formulario = document.getElementById('formRegistro');
+    formulario = document.getElementById('formRegistro');
     const btnLimpiar = document.getElementById('btnLimpiar');
     
     // Envío del formulario
@@ -304,16 +307,16 @@ function guardarLocalmente(datos) {
 // 13. MOSTRAR MENSAJE
 function mostrarMensaje(texto, tipo = 'info') {
     Swal.fire({
-        icon: tipo,
         title: tipo === 'success' ? '¡ÉXITO!' : 
                tipo === 'error' ? 'ERROR' : 
                tipo === 'warning' ? 'ADVERTENCIA' : 'INFORMACIÓN',
         text: texto,
-        //toast: true,
-        //position: 'top-end',
-        //showConfirmButton: false,
-        //timer: 3000,
-        //timerProgressBar: true
+        icon: tipo
+        // toast: true,                    // Descomentar para notificación pequeña
+        // position: 'top-end',            // Posición del toast (top-end, center, etc.)
+        // showConfirmButton: false,       // Oculta botón OK (true = mostrar)
+        // timer: 3000,                    // Cierra automático después de 3 segundos
+        // timerProgressBar: true          // Barra de progreso con timer
     });
 }
 
@@ -372,7 +375,4 @@ async function sincronizarPendientes() {
 window.addEventListener('online', sincronizarPendientes);
 
 // Mostrar registros locales al cargar (solo para debug)
-
 // document.addEventListener('DOMContentLoaded', mostrarRegistrosLocales);
-
-
