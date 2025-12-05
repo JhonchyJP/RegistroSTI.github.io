@@ -1,7 +1,7 @@
 // ============================================
 // CONFIGURACIÓN - REEMPLAZA ESTA URL MÁS ADELANTE
 // ============================================
-let SCRIPT_URL = ''; // Se configurará después
+let SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZursvBP9Us_KcYTmWot8xnvp-5lT7vxz06tDfY5E9StUoz2IH42jK8Q8zioCeZKC1sQ/exec'; // Se configurará después
 
 // Datos para autocompletado (en MAYÚSCULAS)
 const sugerencias = {
@@ -369,4 +369,5 @@ async function sincronizarPendientes() {
 window.addEventListener('online', sincronizarPendientes);
 
 // Mostrar registros locales al cargar (solo para debug)
+
 // document.addEventListener('DOMContentLoaded', mostrarRegistrosLocales);
